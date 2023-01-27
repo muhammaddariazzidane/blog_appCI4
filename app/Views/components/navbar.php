@@ -12,23 +12,21 @@
             Home
           </a>
         </li>
-        <li>
-          <a href="/dashboard">
-            Dashboard
-          </a>
-        </li>
-        <li>
-          <a>
-            <label for="my-modal-4">Create post</label>
-          </a>
-        <li>
-          <form method="POST" action="/logout">
-            <?= csrf_field() ?>
-            <button type="submit">Logout</button>
-          </form>
-        </li>
+        <?php if (session()->get('isLoggedIn')) : ?>
+          <li>
+            <a href="/dashboard">
+              Dashboard
+            </a>
+          </li>
+          <li>
+            <a>
+              <label for="my-modal-4">Create post</label>
+            </a>
+          <li><a href="/logout">Logout</a></li>
+        <?php else : ?>
+          <li><a href="/login">Login</a></li>
+        <?php endif ?>
         <!-- @else -->
-        <li><a href="/login">Login</a></li>
         <!-- @endauth -->
       </ul>
     </div>
@@ -42,6 +40,8 @@
     <ul class="menu menu-horizontal font-semibold px-1">
       <li><a href="/" class="lg:block hidden">Home</a></li>
 
+
+      <!-- <li><a href="/about"><?= session()->get('name') ?></a></li> -->
       <li><a href="/about">About</a></li>
 
     </ul>

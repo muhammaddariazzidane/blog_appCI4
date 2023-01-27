@@ -87,7 +87,7 @@
     window.addEventListener('load', function() {
       const timeAlert = setTimeout(() => {
         alt.classList.toggle('hidden')
-      }, 3000);
+      }, 5000);
     })
     const nav = document.querySelector('.navbar')
     window.addEventListener('scroll', function() {
