@@ -37,7 +37,11 @@ $routes->get('/register', 'RegisterController::index');
 // auth
 $routes->post('/login', 'LoginController::auth');
 $routes->post('/register', 'RegisterController::store');
-
+// dashboard
+$routes->get('/dashboard', 'DashboardController::index');
+$routes->get('/dashboard/categories', 'DashboardController::CategoryLists');
+$routes->post('/dashboard/categories', 'DashboardController::storeCategory');
+$routes->delete('/dashboard/categories/(:num)', 'DashboardController::deleteCategory/$1');
 /*
  * --------------------------------------------------------------------
  * Additional Routing
