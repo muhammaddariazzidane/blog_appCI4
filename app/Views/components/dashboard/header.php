@@ -1,4 +1,4 @@
-<header class="w-full px-4 h-16 fixed top-0  bg-slate-900">
+<header class="w-full px-4 h-16 fixed top-0 z-[999] bg-slate-900">
   <nav class="flex justify-end">
     <div class="absolute left-6 top-4 transition-all duration-500 lg:translate-x-72" id="toggleSide">
       <div onclick="toggleSidebar()" as='button' class="text-white pr-4">

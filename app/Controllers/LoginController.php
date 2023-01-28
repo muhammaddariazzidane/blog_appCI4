@@ -36,6 +36,7 @@ class LoginController extends BaseController
             // if password match
             if ($authPw) {
                 $setData = [
+                    'id' => $data->id,
                     'name' => $data->name,
                     'email' => $data->email,
                     'is_admin' => $data->is_admin,

@@ -51,7 +51,7 @@
 </script>
 </head>
 
-<body onload="hide()" class="relative dark:bg-slate-900 transition-all duration-300 scrollbar-hide">
+<body onload="hide()" class="relative dark:bg-slate-900 h-full min-h-screen transition-all duration-300 scrollbar-hide">
 
   <div class="fixed z-[9999] w-full backdrop-blur-sm min-h-screen " id='loading'>
     <div class="fixed top-[40%] right-0 left-0 text-center">

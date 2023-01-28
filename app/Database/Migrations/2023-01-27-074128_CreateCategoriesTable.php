@@ -22,11 +22,9 @@ class CreateCategoriesTable extends Migration
             ],
             'created_at' => [
                 'type'           => 'DATETIME',
-                // 'constraint'     => 128,
             ],
             'updated_at' => [
                 'type'           => 'DATETIME',
-                // 'constraint'     => 128,
             ]
         ]);
         $this->forge->addKey('id', true);

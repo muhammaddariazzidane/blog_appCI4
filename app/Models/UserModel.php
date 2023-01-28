@@ -39,4 +39,14 @@ class UserModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function search($keyword)
+    {
+        $builder = $this->table('users');
+        $builder->like('name', $keyword);
+        $builder->orLike('email', $keyword);
+
+        return $builder;
+        // $this->table('users')->orLike('email', $keyword);
+    }
 }

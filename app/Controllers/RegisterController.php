@@ -29,7 +29,7 @@ class RegisterController extends BaseController
     {
         if (!$this->validate([
             'name' => 'required',
-            'email' => 'required|valid_email|is_unique[users.email,id,4]',
+            'email' => 'required|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[4]',
         ])) {
             $validation = \Config\Services::validation();

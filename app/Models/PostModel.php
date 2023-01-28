@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class CategoryModel extends Model
+class PostModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'categories';
+    protected $table            = 'posts';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['name'];
+    protected $allowedFields    = ['title', 'body', 'image', 'user_id', 'category_id'];
 
     // Dates
     protected $useTimestamps = true;
@@ -39,15 +39,4 @@ class CategoryModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
-
-
-
-    public function search($keyword)
-    {
-        // $builder = $this->table('categories');
-        // $builder->like('name', $keyword);
-        // return $builder;
-
-        return $this->table('categories')->like('name', $keyword);
-    }
 }
