@@ -39,4 +39,42 @@ class PostModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getAll()
+    {
+        $db      = \Config\Database::connect();
+        $builder = $db->table('posts');
+        $builder->select('posts.id as postId, category_id, user_id, categories.name as name_category , users.name as name_user ,title , body , image , posts.created_at as ct');
+        $builder->join('categories', 'categories.id = posts.category_id');
+        $builder->join('users', 'users.id = posts.user_id');
+        $query = $builder->where('user_id', session()->get('id'))->orderBy('posts.created_at', 'DESC')->get();
+        return  $query->getResult();
+    }
+    public function homePaginate($num)
+    {
+
+        $builder = $this->builder();
+        $builder->select('posts.id as postId, category_id, user_id, categories.name as name_category , users.name as name_user ,title , body , image , posts.created_at as ct');
+        $builder->join('categories', 'categories.id = posts.category_id');
+        $builder->join('users', 'users.id = posts.user_id');
+        return  [
+            'posts' =>  $this->orderBy('posts.created_at', 'DESC')->paginate($num),
+            $this->pager
+        ];
+        // return $data;
+    }
+    public function myPaginated($num)
+    {
+        $builder = $this->builder();
+        $builder->select('posts.id as postId, category_id, user_id, categories.name as name_category , users.name as name_user ,title , body , image , posts.created_at as ct');
+        $builder->join('categories', 'categories.id = posts.category_id');
+        $builder->join('users', 'users.id = posts.user_id');
+        // $data = [
+        // ];
+        return [
+            $this->where('user_id', session()->get('id'))->orderBy('posts.created_at', 'DESC')->paginate($num, 'posts'),
+            $this->pager
+
+        ];
+    }
 }

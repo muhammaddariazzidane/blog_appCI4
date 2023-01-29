@@ -51,7 +51,7 @@
     <?php if ($posts) : ?>
 
         <div class="w-full lg:px-0 px-6">
-            <?php foreach ($posts as $p) : ?>
+            <?php foreach ($posts['posts'] as $p) : ?>
                 <div class="my-6">
                     <a href="#">
                         <h1 class="text-3xl font-semibold mb-3 "><?= $p->title ?>
@@ -59,7 +59,7 @@
                     </a>
                     <div class="flex lg:flex-row flex-col mb-3">
                         <div class="lg:w-[70%] w-full lg:pr-4">
-                            <p class="text-slate-600 dark:text-slate-400"><?= $p->body ?>
+                            <p class="text-slate-600 dark:text-slate-400"><?= substr($p->body, 0, 350) ?>...
                             </p>
                         </div>
                         <div class="w-full h-60 lg:mt-0 mt-4 lg:max-w-[30%] lg:max-h-36">
@@ -85,5 +85,11 @@
         <h1 class="text-3xl py-32 text-black dark:text-white text-center">Post Not Found</h1>
 
     <?php endif ?>
+    <div class="w-full  my-28 mx-auto">
+        <div class="flex justify-around flex-row">
+            <?= $posts[0]->links('posts', 'homePaginate') ?>
+
+        </div>
+    </div>
 </div>
 <?= $this->endSection() ?>

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\CategoryModel;
+use App\Models\PostModel;
 use App\Models\UserModel;
 
 // use App\Models\CategoryModel;
@@ -12,17 +13,30 @@ class DashboardController extends BaseController
 {
     protected $categoryModel;
     protected $userModel;
+    protected $postModel;
     public function __construct()
     {
         $this->categoryModel = new CategoryModel();
         $this->userModel = new UserModel();
+        $this->postModel = new PostModel();
     }
     public function index()
     {
         // dd(session()->get());
-        return view('dashboard/posts', [
-            'title' => 'Dashboard'
-        ]);
+        // $data = $this->postModel->where('user_id', session()->get('id'))->findAll();
+
+
+        // dd($data);
+        $posts = $this->postModel->myPaginated(3);
+        // $lempar = $posts[0];
+        $data = [
+            // ''
+            'title' => 'Dashboard',
+            'posts' => $posts[0]
+            // 'posts' =>  $this->postModel->myPaginated(3),
+        ];
+        // dd($data['posts']);
+        return view('dashboard/posts', $data);
     }
     public function UserLists()
     {

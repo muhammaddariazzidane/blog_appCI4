@@ -15,8 +15,11 @@
   <!--  -->
   <main id="main" class="bg-slate-700 transition-all duration-300 lg:ml-[23%] min-h-screen h-full">
     <div class="pt-20 mx-6 mb-6 mt-2">
-
-      <h1 class="text-white text-2xl font-semibold"><?= $title ?> </h1>
+      <?php if (session()->get('is_admin')) : ?>
+        <h1 class="text-white text-2xl font-semibold"><?= $title ?></h1>
+      <?php else : ?>
+        <h1 class="text-white text-2xl font-semibold">My Post</h1>
+      <?php endif ?>
       <!-- {{-- <h1 class="text-white text-2xl font-semibold">Dashboard</h1> --}} -->
 
       <!-- @if (session()->has('success')) -->

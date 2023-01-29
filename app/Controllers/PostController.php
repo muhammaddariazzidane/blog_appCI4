@@ -31,14 +31,14 @@ class PostController extends BaseController
             'image' => 'uploaded[image]|is_image[image]'
         ])) {
             return redirect()->back()->withInput();
-            # code...
         }
         // dd('bisa');
         $fileImage = $this->request->getFile('image');
-        // move image to folder img
-        $fileImage->move('img');
         // get name file
-        $fileName = $fileImage->getName();
+        $fileName = $fileImage->getRandomName();
+
+        // move image to folder img
+        $fileImage->move('img', $fileName);
 
         $this->postModel->save([
             'title' => $this->request->getVar('title'),
@@ -48,5 +48,15 @@ class PostController extends BaseController
             'user_id' => session()->get('id'),
         ]);
         return redirect()->to('/');
+    }
+    public function delete($id)
+    {
+        $post = $this->postModel->find($id);
+
+        unlink('img/' . $post['image']);
+
+        $this->postModel->delete($id);
+        session()->setFlashdata('success', 'Success Delete Post');
+        return redirect()->back();
     }
 }

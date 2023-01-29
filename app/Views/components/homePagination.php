@@ -1,7 +1,6 @@
-<?php $pager->setSurroundCount(0) ?>
-<?php if ($pager->getPrevious()) : ?>
-  <a href="<?= $pager->getPrevious() ?>" aria-label="<?= lang('Pager.previous') ?>">
-    <span class="flex  mr-2 hover:underline text-white">
+<?php if ($posts[0]->getPreviousPageURI()) : ?>
+  <a href="<?= $posts[0]->getPreviousPageURI() ?>" aria-label="<?= lang('Pager.previous') ?>">
+    <span class="flex  mr-2 hover:underline dark:text-white">
 
       <i data-feather="chevron-left" class="mt-[0.1rem]"></i>
       <p class="text-md font-semibold">
@@ -10,50 +9,32 @@
     </span>
   </a>
 <?php else : ?>
-  <span class="flex  mr-2 text-slate-500">
+  <span class="flex  mr-2 text-slate-400  dark:text-gray-500">
 
     <i data-feather="chevron-left" class="mt-[0.1rem]"></i>
-    <p class="text-md font-semibold">
-      Prev page
+    <p class="text-md  font-semibold">
+      Prev pages
     </p>
   </span>
 
 <?php endif ?>
 
-<div class="btn-group shadow-sm   text-white">
-  <?php foreach ($pager->links() as $link) : ?>
+
+<div class="btn-group shadow-sm   dark:text-white">
+  <button class="btn-sm btn-active">
+    <a href=""><?= $posts[0]->getCurrentPage() ?></a>
+  </button>
 
 
 
-    <?php if ($pager->getPreviousPageNumber()) : ?>
-      <!-- <button >
-        </button> -->
-
-      <a class="btn btn-sm" href="<?= $pager->getPrevious() ?>"><?= $pager->getPreviousPageNumber() ?></a>
-    <?php endif ?>
-    <a href="<?= $link['uri'] ?>" class="btn btn-sm <?= $link['active'] ? 'btn-active' : '' ?>">
-      <!-- <button> -->
-      <?= $link['title'] ?>
-      <!-- </button> -->
-    </a>
-    <?php if ($pager->getNextPageNumber()) : ?>
-
-      <a class="btn btn-sm" href="<?= $pager->getNext() ?>"><?= $pager->getNextPageNumber() ?></a>
-
-    <?php endif ?>
-    <!-- @else -->
-
-
-
-
-  <?php endforeach ?>
 </div>
 
 <!-- <li>
       </li> -->
-<?php if ($pager->getNext()) : ?>
-  <a href="<?= $pager->getNext() ?>" aria-label="<?= lang('Pager.next') ?>">
-    <span class="flex ml-2 hover:underline text-white">
+
+<?php if ($posts[0]->getNextPageURI()) : ?>
+  <a href="<?= $posts[0]->getNextPageURI() ?>" aria-label="<?= lang('Pager.next') ?>">
+    <span class="flex ml-2 hover:underline dark:text-white">
       <p class="text-md font-semibold">
         Next page
       </p>
@@ -61,12 +42,10 @@
     </span>
   </a>
 <?php else : ?>
-  <span class="flex ml-2  text-slate-500">
+  <span class="flex ml-2 text-slate-400  dark:text-gray-500">
     <p class="text-md font-semibold">
       Next page
     </p>
     <i data-feather="chevron-right" class="mt-[0.1rem]"></i>
   </span>
-
-
 <?php endif ?>
