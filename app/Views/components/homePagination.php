@@ -21,8 +21,19 @@
 
 
 <div class="btn-group shadow-sm   dark:text-white">
+  <button class="btn-sm">
+    <a href="/?page=<?= $posts[0]->getFirstPage() ?>">
+      <i data-feather="chevrons-left"></i>
+    </a>
+  </button>
+
   <button class="btn-sm btn-active">
     <a href=""><?= $posts[0]->getCurrentPage() ?></a>
+  </button>
+  <button class="btn-sm">
+    <a href="/?page=<?= $posts[0]->getLastPage() ?>">
+      <i data-feather="chevrons-right"></i>
+    </a>
   </button>
 
 
