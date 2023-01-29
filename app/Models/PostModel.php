@@ -72,7 +72,7 @@ class PostModel extends Model
         // $data = [
         // ];
         return [
-            $this->where('user_id', session()->get('id'))->orderBy('posts.created_at', 'DESC')->paginate($num, 'posts'),
+            'posts' => $this->where('user_id', session()->get('id'))->orderBy('posts.created_at', 'DESC')->paginate($num, 'posts'),
             $this->pager
 
         ];

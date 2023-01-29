@@ -27,15 +27,15 @@ class DashboardController extends BaseController
 
 
         // dd($data);
-        $posts = $this->postModel->myPaginated(3);
+        $posts = $this->postModel->myPaginated(1);
         // $lempar = $posts[0];
         $data = [
             // ''
             'title' => 'Dashboard',
-            'posts' => $posts[0]
-            // 'posts' =>  $this->postModel->myPaginated(3),
+            'posts' => $posts,
+
         ];
-        // dd($data['posts']);
+        // dd($posts[0]);
         return view('dashboard/posts', $data);
     }
     public function UserLists()

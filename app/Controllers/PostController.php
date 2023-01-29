@@ -52,8 +52,7 @@ class PostController extends BaseController
     public function delete($id)
     {
         $post = $this->postModel->find($id);
-
-        unlink('img/' . $post['image']);
+        unlink('img/' . $post->image);
 
         $this->postModel->delete($id);
         session()->setFlashdata('success', 'Success Delete Post');

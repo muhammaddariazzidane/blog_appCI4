@@ -1,6 +1,24 @@
 <?= $this->extend('layouts/dashboard') ?> <?= $this->section('dashboard') ?>
 
 <?php if ($posts) : ?>
+
+  <?php if (session()->getFlashdata('success')) : ?>
+
+    <div class="max-w-xs mx-7 my-5">
+
+      <div class="alert alert-success shadow-lg mt-4 transition-all duration-300" id='message'>
+        <div>
+          <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current flex-shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+          <span>
+            <?= session()->getFlashdata('success') ?>
+
+          </span>
+        </div>
+      </div>
+    </div>
+  <?php endif ?>
   <div class="overflow-auto rounded-lg shadow-md  mx-5">
     <table class="w-full  bg-slate-800 text-left text-sm text-white">
       <thead class="bg-slate-900">
@@ -16,7 +34,7 @@
       <tbody>
         <!-- @foreach ($posts as $p) -->
         <?php $i = 1 ?>
-        <?php foreach ($posts as $p) : ?>
+        <?php foreach ($posts['posts'] as $p) : ?>
           <tr class="hover:bg-slate-900 transition-all duration-300">
             <td class="px-6 py-4 whitespace-pre-line">
               <h1><?= $i++ ?></h1>
@@ -39,8 +57,8 @@
             </td>
             <td class="px-6 py-4">
               <div class="flex justify-start gap-4">
-                <form action="/dashboard/posts/<?= $p->postId ?>" method="post">
-
+                <form action="/posts/<?= $p->postId ?>" method="post">
+                  <input type="hidden" name="_method" value="DELETE">
                   <button type="submit" onclick="return confirm('are you sure to delete ?')">
                     <i data-feather="trash-2" class="text-red-600"></i>
                   </button>
@@ -60,7 +78,7 @@
     </table>
     <div class="w-full py-8 mx-auto">
       <div class="flex justify-around ">
-
+        <?= $posts[0]->links('posts', 'homePaginate') ?>
       </div>
     </div>
   </div>
