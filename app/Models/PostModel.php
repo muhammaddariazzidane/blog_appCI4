@@ -50,6 +50,16 @@ class PostModel extends Model
         $query = $builder->where('user_id', session()->get('id'))->orderBy('posts.created_at', 'DESC')->get();
         return  $query->getResult();
     }
+    public function getPostById($postId)
+    {
+        // $db      = \Config\Database::connect();
+        $builder = $this->builder();
+        $builder->select('posts.id as postId, category_id, user_id, categories.name as name_category , users.name as name_user ,title , body , image , posts.created_at as ct');
+        $builder->join('categories', 'categories.id = posts.category_id');
+        $builder->join('users', 'users.id = posts.user_id');
+        $query = $builder->where('posts.id', $postId)->get();
+        return  $query->getResult();
+    }
     public function getById($category_id)
     {
         // $db      = \Config\Database::connect();

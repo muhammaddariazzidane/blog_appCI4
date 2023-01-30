@@ -63,7 +63,7 @@
                     <i data-feather="trash-2" class="text-red-600"></i>
                   </button>
                 </form>
-                <a href="/dashboard/posts/{{ $p->id }}/edit" class="text-primary">
+                <a href="/posts/<?= $p->postId ?>/edit" class="text-primary">
                   <i data-feather="edit"></i>
 
                 </a>

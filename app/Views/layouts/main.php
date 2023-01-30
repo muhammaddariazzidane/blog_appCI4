@@ -69,7 +69,7 @@
   <?= $this->renderSection('main') ?>
 
   <footer class="w-full  p-4">
-    <p class="text-center dark:text-slate-300 text-sm font-semibold">@ copyright 2023 All right reserved</p>
+    <p class="text-center dark:text-slate-300 text-sm font-semibold">@ copyright 2023 <span class="uppercase">dariazzidane-blog</span>. All right reserved</p>
   </footer>
 
 

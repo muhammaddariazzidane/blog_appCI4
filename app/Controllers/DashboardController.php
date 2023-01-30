@@ -22,10 +22,6 @@ class DashboardController extends BaseController
     }
     public function index()
     {
-        // dd(session()->get());
-        // $data = $this->postModel->where('user_id', session()->get('id'))->findAll();
-
-
         // dd($data);
         $posts = $this->postModel->getAll();
             // $lempar = $posts[0]

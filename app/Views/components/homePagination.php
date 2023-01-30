@@ -29,9 +29,9 @@
     </button>
   <?php else : ?>
     <button class="btn-sm text-slate-500 dark:text-gray-500">
-      <a href="/?page=<?= $posts[0]->getFirstPage() ?>">
+      <span>
         <i data-feather="chevrons-left"></i>
-      </a>
+      </span>
     </button>
   <?php endif ?>
 
@@ -46,9 +46,9 @@
     </button>
   <?php else : ?>
     <button class="btn-sm text-slate-500 dark:text-gray-500">
-      <a href="/?page=<?= $posts[0]->getLastPage() ?>">
+      <span>
         <i data-feather="chevrons-right"></i>
-      </a>
+      </span>
     </button>
   <?php endif ?>
 
