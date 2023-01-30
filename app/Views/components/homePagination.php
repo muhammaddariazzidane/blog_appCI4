@@ -21,20 +21,36 @@
 
 
 <div class="btn-group shadow-sm   dark:text-white">
-  <button class="btn-sm">
-    <a href="/?page=<?= $posts[0]->getFirstPage() ?>">
-      <i data-feather="chevrons-left"></i>
-    </a>
-  </button>
+  <?php if ($posts[0]->getPreviousPageURI()) : ?>
+    <button class="btn-sm">
+      <a href="/?page=<?= $posts[0]->getFirstPage() ?>">
+        <i data-feather="chevrons-left"></i>
+      </a>
+    </button>
+  <?php else : ?>
+    <button class="btn-sm text-slate-500 dark:text-gray-500">
+      <a href="/?page=<?= $posts[0]->getFirstPage() ?>">
+        <i data-feather="chevrons-left"></i>
+      </a>
+    </button>
+  <?php endif ?>
 
   <button class="btn-sm btn-active">
     <a href=""><?= $posts[0]->getCurrentPage() ?></a>
   </button>
-  <button class="btn-sm">
-    <a href="/?page=<?= $posts[0]->getLastPage() ?>">
-      <i data-feather="chevrons-right"></i>
-    </a>
-  </button>
+  <?php if ($posts[0]->getNextPageURI()) : ?>
+    <button class="btn-sm">
+      <a href="/?page=<?= $posts[0]->getLastPage() ?>">
+        <i data-feather="chevrons-right"></i>
+      </a>
+    </button>
+  <?php else : ?>
+    <button class="btn-sm text-slate-500 dark:text-gray-500">
+      <a href="/?page=<?= $posts[0]->getLastPage() ?>">
+        <i data-feather="chevrons-right"></i>
+      </a>
+    </button>
+  <?php endif ?>
 
 
 

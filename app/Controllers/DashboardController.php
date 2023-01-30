@@ -27,15 +27,16 @@ class DashboardController extends BaseController
 
 
         // dd($data);
-        $posts = $this->postModel->myPaginated(1);
-        // $lempar = $posts[0];
+        $posts = $this->postModel->getAll();
+            // $lempar = $posts[0]
+        ;
         $data = [
             // ''
             'title' => 'Dashboard',
             'posts' => $posts,
 
         ];
-        // dd($posts[0]);
+        // dd($posts);
         return view('dashboard/posts', $data);
     }
     public function UserLists()
@@ -49,7 +50,7 @@ class DashboardController extends BaseController
         // dd($users->is_admin);
         return view('dashboard/users', [
             'title' => 'Lists User',
-            'users' =>  $users->paginate(10, 'users'),
+            'users' =>  $users->paginate(15, 'users'),
             'pager' => $this->userModel->pager
 
         ]);

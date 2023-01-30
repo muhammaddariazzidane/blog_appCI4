@@ -4,7 +4,7 @@
 <?= $this->section('main') ?>
 <div class=" flex flex-col min-h-screen ">
   <div class=" flex flex-1 justify-center items-center">
-    <div class="rounded-xl px-4 lg:px-12 py-16 lg:max-w-md  w-full shadow-lg dark:shadow-primary">
+    <div class="rounded-xl px-4 lg:px-12 py-12 lg:max-w-md  w-full shadow-sm dark:shadow-primary">
       <form action="/register" method="post" class="text-center">
         <h1 class="font-bold tracking-wider text-3xl mb-4 w-full dark:text-white">
           Register

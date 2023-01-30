@@ -3,6 +3,7 @@
 namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
+use CodeIgniter\I18n\Time;
 
 class CreatePostsTable extends Migration
 {
@@ -38,7 +39,7 @@ class CreatePostsTable extends Migration
                 'constraint'     => 11,
             ],
             'created_at' => [
-                'type'           => 'DATETIME',
+                'type'           => Time::now()
             ],
             'updated_at' => [
                 'type'           => 'DATETIME',

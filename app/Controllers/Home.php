@@ -19,21 +19,11 @@ class Home extends BaseController
     }
     public function index()
     {
-        // $data = session()->get('name');
-        // dd($data);
-        // $db      = \Config\Database::connect();
 
-        // $builder = $db->table('posts');
-        // $builder->select('posts.id as postId, category_id, user_id, categories.name as name_category , users.name as name_user ,title , body , image , posts.created_at as ct');
-        // $builder->join('categories', 'categories.id = posts.category_id');
-        // $builder->join('users', 'users.id = posts.user_id');
-        // $query = $builder->orderBy('posts.created_at', 'DESC')->get();
-        // $data = $query->getResultObject();
-
-        $category = $this->categoryModel->findAll();
         // dd(session()->get('id'));
         // $posts = $this->postModel->homePaginate(2);
         // $data =  ;
+        $category = $this->categoryModel->findAll();
         $data =  [
             'title' => 'HomePage',
             'category' => $category,
@@ -43,5 +33,18 @@ class Home extends BaseController
         // dd($data);
 
         return view('home', $data);
+    }
+    public function show($id)
+    {
+        $post = $this->postModel->where('id', $id)->first();
+        // dd($post);
+        $category = $this->categoryModel->findAll();
+        $data =  [
+            'title' => 'DetailPost',
+            'category' => $category,
+            'post' => $post,
+            // 'pager' => $this->postModel->pager
+        ];
+        return view('detail', $data);
     }
 }

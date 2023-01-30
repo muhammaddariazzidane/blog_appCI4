@@ -2,6 +2,7 @@
 
 <?= $this->section('main') ?>
 <?= $this->include('components/navbar') ?>
+<!-- form create -->
 <input type="checkbox" id="my-modal-4" class="modal-toggle" />
 
 <label for="my-modal-4" class="modal  cursor-pointer">
@@ -48,18 +49,18 @@
 </label>
 <!-- <h1 class="text-6xl pt-44 text-primary">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde id dolores, ratione officia officiis ex veritatis. Facere, voluptatem? Debitis non sint quam deleniti ducimus. Praesentium exercitationem itaque dolorem labore consequatur tenetur ratione omnis, odio nihil nam voluptatem quibusdam eveniet animi quo numquam rerum iure?</h1> -->
 <div class="min-h-screen max-w-[740px] dark:text-white pt-32 mx-auto">
-    <?php if ($posts) : ?>
-
+    <?php if ($posts['posts']) : ?>
         <div class="w-full lg:px-0 px-6">
             <?php foreach ($posts['posts'] as $p) : ?>
                 <div class="my-6">
-                    <a href="#">
+
+                    <a href="/detail/<?= $p->postId ?>">
                         <h1 class="text-3xl font-semibold mb-3 "><?= $p->title ?>
                         </h1>
                     </a>
                     <div class="flex lg:flex-row flex-col mb-3">
                         <div class="lg:w-[70%] w-full lg:pr-4">
-                            <p class="text-slate-600 dark:text-slate-400"><?= substr($p->body, 0, 350) ?>...
+                            <p class="text-slate-600  dark:text-slate-400"><?= substr($p->body, 0, 350) ?>...<em class="hover:cursor-pointer hover:underline text-primary "><a href="/detail/<?= $p->postId ?>">Read more</a></em>
                             </p>
                         </div>
                         <div class="w-full h-60 lg:mt-0 mt-4 lg:max-w-[30%] lg:max-h-36">
@@ -72,7 +73,7 @@
                             <button class="max-w-20 text-white lg:mt-4 mt-5 hover:bg-indigo-400 transition-all duration-300 bg-indigo-500 p-2 rounded-md"># <?= $p->name_category ?></button>
                         </div>
                         <div class="lg:mt-5 mt-4">
-                            <p><?= $p->ct ?></p>
+                            <p class="dark:text-slate-300 text-slate-500">Post By : <?= $p->name_user  ?></p>
                         </div>
                     </div>
                     <div class="mt-5">
@@ -81,15 +82,17 @@
                 </div>
             <?php endforeach ?>
         </div>
+        <!-- topis section -->
+        <?= $this->include('components/topics') ?>
+        <!--  -->
+        <div class="w-full py-16 my-12 mx-auto">
+            <div class="flex justify-around flex-row">
+                <?= $posts[0]->links('posts', 'homePaginate') ?>
+            </div>
+        </div>
     <?php else : ?>
         <h1 class="text-3xl py-32 text-black dark:text-white text-center">Post Not Found</h1>
 
     <?php endif ?>
-    <div class="w-full  my-28 mx-auto">
-        <div class="flex justify-around flex-row">
-            <?= $posts[0]->links('posts', 'homePaginate') ?>
-
-        </div>
-    </div>
 </div>
 <?= $this->endSection() ?>

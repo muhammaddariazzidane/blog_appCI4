@@ -34,7 +34,7 @@
       <tbody>
         <!-- @foreach ($posts as $p) -->
         <?php $i = 1 ?>
-        <?php foreach ($posts['posts'] as $p) : ?>
+        <?php foreach ($posts as $p) : ?>
           <tr class="hover:bg-slate-900 transition-all duration-300">
             <td class="px-6 py-4 whitespace-pre-line">
               <h1><?= $i++ ?></h1>
@@ -76,11 +76,7 @@
 
       </tbody>
     </table>
-    <div class="w-full py-8 mx-auto">
-      <div class="flex justify-around ">
-        <?= $posts[0]->links('posts', 'homePaginate') ?>
-      </div>
-    </div>
+
   </div>
 
 <?php else : ?>

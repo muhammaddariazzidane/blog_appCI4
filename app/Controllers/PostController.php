@@ -58,4 +58,8 @@ class PostController extends BaseController
         session()->setFlashdata('success', 'Success Delete Post');
         return redirect()->back();
     }
+    public function show($id)
+    {
+        dd($id);
+    }
 }

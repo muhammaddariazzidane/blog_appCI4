@@ -115,7 +115,7 @@
     </div>
     <div class="w-full py-8 mx-auto">
       <div class="flex justify-around ">
-        <?= $pager->links('users', 'homePaginate') ?>
+        <?= ($pager->links('users', 'categoryPaginate')) ?>
         <!-- {{-- pagination components --}}
                     {{ $users->links('components.dashboard.dashboard-pagination') }} -->
 

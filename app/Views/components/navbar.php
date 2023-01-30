@@ -7,12 +7,12 @@
       </label>
       <ul tabindex="0" class="mt-3 p-2 shadow-violet-800 shadow-sm dark:bg-slate-900 dark:shadow-violet-800/80 menu menu-compact dropdown-content bg-base-100 rounded-box w-52">
         <!-- @auth -->
-        <li class="lg:hidden block">
-          <a href="/">
-            Home
-          </a>
-        </li>
         <?php if (session()->get('isLoggedIn')) : ?>
+          <li class="lg:hidden block">
+            <a href="/">
+              Home
+            </a>
+          </li>
           <li>
             <a href="/dashboard">
               Dashboard
@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="navbar-center">
-    <a class="btn btn-ghost normal-case text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-600  to-purple-700 "><?= $title ?></a>
+    <a href="/" class="btn btn-ghost normal-case text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-600  to-purple-700 ">Dariazzidane-blog</a>
   </div>
   <div class="navbar-end ">
 

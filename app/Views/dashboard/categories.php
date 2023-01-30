@@ -151,10 +151,6 @@
       <div class="lg:max-w-[36.7%] max-w-xs bg-slate-700 py-8 ">
         <div class="flex px-1 justify-around ">
           <?= $pager->links('categories', 'categoryPaginate') ?>
-
-          <!-- {{-- pagination components --}}
-                        {{ $category->links('components.dashboard.dashboard-pagination') }} -->
-
         </div>
       </div>
     </div>

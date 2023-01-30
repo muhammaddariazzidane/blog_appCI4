@@ -1,5 +1,5 @@
-<?php if ($posts[1]->getPreviousPageURI()) : ?>
-  <a href="<?= $posts[1]->getPreviousPageURI() ?>" aria-label="<?= lang('Pager.previous') ?>">
+<?php if ($posts[0]->getPreviousPageURI()) : ?>
+  <a href="<?= $posts[0]->getPreviousPageURI() ?>" aria-label="<?= lang('Pager.previous') ?>">
     <span class="flex  mr-2 hover:underline dark:text-white">
 
       <i data-feather="chevron-left" class="mt-[0.1rem]"></i>
@@ -22,16 +22,16 @@
 
 <div class="btn-group shadow-sm   dark:text-white">
   <button class="btn-sm">
-    <a href="/?page=<?= $posts[1]->getFirstPage() ?>">
+    <a href="/?page=<?= $posts[0]->getFirstPage() ?>">
       <i data-feather="chevrons-left"></i>
     </a>
   </button>
 
   <button class="btn-sm btn-active">
-    <a href=""><?= $posts[1]->getCurrentPage() ?></a>
+    <a href=""><?= $posts[0]->getCurrentPage() ?></a>
   </button>
   <button class="btn-sm">
-    <a href="/?page=<?= $posts[1]->getLastPage() ?>">
+    <a href="/?page=<?= $posts[0]->getLastPage() ?>">
       <i data-feather="chevrons-right"></i>
     </a>
   </button>
@@ -43,8 +43,8 @@
 <!-- <li>
       </li> -->
 
-<?php if ($posts[1]->getNextPageURI()) : ?>
-  <a href="<?= $posts[1]->getNextPageURI() ?>" aria-label="<?= lang('Pager.next') ?>">
+<?php if ($posts[0]->getNextPageURI()) : ?>
+  <a href="<?= $posts[0]->getNextPageURI() ?>" aria-label="<?= lang('Pager.next') ?>">
     <span class="flex ml-2 hover:underline dark:text-white">
       <p class="text-md font-semibold">
         Next page
