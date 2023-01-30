@@ -2,14 +2,16 @@
 
 <?= $this->section('template') ?>
 <title><?= $title ?></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.24.2/jodit.es2018.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.24.2/jodit.es2018.min.js"></script>
+
+
 <style>
   * {
     font-family: 'Poppins', sans-serif !important;
   }
 
-  trix-toolbar [data-trix-button-group="file-tools"] {
-    display: none;
-  }
+
 
   .lds-dual-ring {
     display: inline-block;
@@ -53,7 +55,7 @@
 
 <body onload="hide()" class="relative dark:bg-slate-900 h-full min-h-screen transition-all duration-300 scrollbar-hide">
 
-  <div class="fixed z-[9999] w-full backdrop-blur-sm min-h-screen " id='loading'>
+  <div class="fixed z-[9999]  w-full backdrop-blur-sm min-h-screen " id='loading'>
     <div class="fixed top-[40%] right-0 left-0 text-center">
       <div class="lds-dual-ring"></div>
     </div>
@@ -73,7 +75,16 @@
   </footer>
 
 
+
+
+  <!-- <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script> -->
+
+
+
   <script>
+    // 
+    var editor = Jodit.make('#editor');
+
     let target = document.querySelector('#loading')
 
     function hide() {
@@ -97,7 +108,9 @@
         nav.classList.remove('shadow-md')
       }
     })
+
     feather.replace()
+
     const darkToggle = document.querySelector('#dark-toggle')
     const html = document.querySelector('html')
     const moon = document.querySelector('#moon')

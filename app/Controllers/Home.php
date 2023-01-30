@@ -28,9 +28,12 @@ class Home extends BaseController
             'title' => 'HomePage',
             'category' => $category,
             'posts' => $this->postModel->homePaginate(3),
+            // 'validation' =>  \Config\Services::validation()
+
             // 'pager' => $this->postModel->pager
         ];
         // dd($data);
+        // dd($data['validation']);
 
         return view('home', $data);
     }

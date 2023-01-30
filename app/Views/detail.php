@@ -14,7 +14,7 @@
       <label for="title" class="label">
         <span class="label-text dark:text-white">Title</span>
       </label>
-      <input type="text" name="title" placeholder="Type here" class="input mb-3 border-primary  focus:outline-primary w-full max-w-full " value="<?= old('title') ?>" />
+      <input required type="text" name="title" placeholder="Type here" class="input mb-3 border-primary  focus:outline-primary w-full max-w-full " value="<?= old('title') ?>" />
       <label for="" class="label">
         <span class="label-text dark:text-white">Category</span>
       </label>
@@ -39,7 +39,7 @@
       <label for="body" class="label">
         <span class="label-text dark:text-white">Body</span>
       </label>
-      <textarea name="body" id="body" class="textarea textarea-primary w-full" required></textarea>
+      <textarea name="body" id="editor" class="textarea textarea-primary w-full" required></textarea>
 
       <div class="mt-5">
         <button type="submit" class="btn btn-primary">Create Post</button>
@@ -50,8 +50,8 @@
 
 <div class="min-h-screen max-w-[740px] dark:text-white pt-32 mx-auto">
   <div class="px-6 lg:px-0">
-    <div class="mb-4 max-w-[740px] relative mx-auto " style="height: 24em;">
-      <img src="/img/<?= $post->image ?>" class="absolute left-0 top-0 w-full h-full z-0 object-cover" />
+    <div class="mb-4 max-w-[740px] relative mx-auto " style="min-height: 24em;">
+      <img src="/img/<?= $post->image ?>" class="absolute left-0 top-0 w-full h-full z-0 object-contain" />
 
     </div>
     <h2 class="text-4xl font-semibold  text-center dark:text-gray-100 leading-tight">

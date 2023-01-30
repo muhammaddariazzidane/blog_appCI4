@@ -27,7 +27,11 @@ class PostController extends BaseController
             'body' => 'required',
             'image' => 'uploaded[image]|is_image[image]|max_size[image,5024]'
         ])) {
+
+            // $validation = \Config\Services::validation();
+            // dd($validation);
             return redirect()->back()->withInput();
+            // return redirect()->to('/')->withInput('message', $validation->getErrors());
         }
         // dd('bisa');
         $fileImage = $this->request->getFile('image');
@@ -66,6 +70,7 @@ class PostController extends BaseController
             'body' => 'required',
             'image' => 'is_image[image]|max_size[image,5024]'
         ])) {
+            // $validation = \Config\Services::validation();
             return redirect()->back()->withInput();
         }
 

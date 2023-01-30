@@ -12,7 +12,6 @@ class CreatePostsTable extends Migration
         $this->forge->addField([
             'id' => [
                 'type'           => 'INT',
-
                 'constraint'     => 5,
                 'unsigned'       => true,
                 'auto_increment' => true,
@@ -39,7 +38,7 @@ class CreatePostsTable extends Migration
                 'constraint'     => 11,
             ],
             'created_at' => [
-                'type'           => Time::now()
+                'type'           => 'DATETIME'
             ],
             'updated_at' => [
                 'type'           => 'DATETIME',

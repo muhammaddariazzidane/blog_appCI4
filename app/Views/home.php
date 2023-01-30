@@ -6,7 +6,7 @@
 <input type="checkbox" id="my-modal-4" class="modal-toggle" />
 
 <label for="my-modal-4" class="modal  cursor-pointer">
-    <label class="modal-box relative  dark:bg-black scrollbar-hide" for="">
+    <label class="modal-box relative  dark:bg-slate-900 scrollbar-hide" for="">
         <h1 class="mb-5 text-center dark:text-white text-2xl">Create New Post</h1>
 
         <form action="/posts" method="post" class=" w-full" enctype="multipart/form-data">
@@ -39,7 +39,7 @@
             <label for="body" class="label">
                 <span class="label-text dark:text-white">Body</span>
             </label>
-            <textarea name="body" id="body" class="textarea textarea-primary w-full" required></textarea>
+            <textarea name="body" id="editor" class="textarea textarea-primary w-full" required></textarea>
 
             <div class="mt-5">
                 <button type="submit" class="btn btn-primary">Create Post</button>
@@ -49,6 +49,23 @@
 </label>
 <!-- <h1 class="text-6xl pt-44 text-primary">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde id dolores, ratione officia officiis ex veritatis. Facere, voluptatem? Debitis non sint quam deleniti ducimus. Praesentium exercitationem itaque dolorem labore consequatur tenetur ratione omnis, odio nihil nam voluptatem quibusdam eveniet animi quo numquam rerum iure?</h1> -->
 <div class="min-h-screen max-w-[740px] dark:text-white pt-32 mx-auto">
+    <div class="max-w-full hidden min-h-screen dark:bg-black/50 bg-slate-700/40 w-full z-[999] left-0 fixed top-16" id="alert">
+        <div class="alert alert-warning shadow-lg max-w-[740px] mx-auto">
+            <div>
+                <div class="flex flex-col">
+                    @foreach ($errors->all() as $error)
+                    <span> - {{ $error }}.</span>
+                    @endforeach
+                </div>
+
+            </div>
+            <div class="flex-none">
+                <button onclick="myFunction()" class="bg-slate-700 p-3  text-white rounded-full">
+                    <i data-feather="x"></i>
+                </button>
+            </div>
+        </div>
+    </div>
     <?php if ($posts['posts']) : ?>
         <div class="w-full lg:px-0 px-6">
             <?php foreach ($posts['posts'] as $p) : ?>
@@ -60,7 +77,7 @@
                     </a>
                     <div class="flex lg:flex-row flex-col mb-3">
                         <div class="lg:w-[70%] w-full lg:pr-4">
-                            <p class="text-slate-600  dark:text-slate-400"><?= substr($p->body, 0, 350) ?>...<em class="hover:cursor-pointer hover:underline text-primary "><a href="/detail/<?= $p->postId ?>">Read more</a></em>
+                            <p class="text-slate-600 break-words dark:text-slate-400"><?= substr($p->body, 0, 350) ?>...<em class="hover:cursor-pointer hover:underline text-primary "><a href="/detail/<?= $p->postId ?>">Read more</a></em>
                             </p>
                         </div>
                         <div class="w-full h-60 lg:mt-0 mt-4 lg:max-w-[30%] lg:max-h-36">

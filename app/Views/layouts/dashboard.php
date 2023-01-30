@@ -1,6 +1,9 @@
 <?= $this->extend('template/index') ?>
 <?= $this->section('template') ?>
 <title><?= $title ?></title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.24.2/jodit.es2018.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.24.2/jodit.es2018.min.js"></script>
+
 </head>
 
 <body class="relative">
@@ -33,6 +36,8 @@
 
 
   <script>
+    var editor = Jodit.make('#editor');
+
     const alt = document.querySelector('#message')
     window.addEventListener('load', function() {
       const timeAlert = setTimeout(() => {

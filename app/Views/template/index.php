@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="ID">
 
 <head>
   <meta charset="UTF-8">
@@ -12,6 +12,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/feather-icons"></script>
   <?= $this->renderSection('template') ?>
+
+
 
 
   <script>

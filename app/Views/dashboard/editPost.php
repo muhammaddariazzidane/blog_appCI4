@@ -58,8 +58,8 @@
         <label class="label">
           <span class="label-text text-white mb-1">Body</span>
         </label>
-        <textarea type="text" placeholder="Title" name="body" class="textarea textarea-bordered">
-        <?= old('body', $post->body) ?>
+        <textarea type="text" id="editor" name="body" class="textarea textarea-bordered">
+        <?= $post->body ?>
         </textarea>
       </div>
       <div class="form-control mt-6">
