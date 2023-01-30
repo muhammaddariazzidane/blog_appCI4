@@ -32,6 +32,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 
 $routes->get('/detail/(:num)', 'Home::show/$1');
+$routes->get('/category/(:num)', 'Home::sorting/$1');
 $routes->resource('posts', ['controller' => 'PostController']);
 
 // views

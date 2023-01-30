@@ -47,4 +47,20 @@ class Home extends BaseController
         ];
         return view('detail', $data);
     }
+    public function sorting($category_id)
+    {
+        // dd($category_id);
+        $posts =  $this->postModel->getById($category_id);
+        // dd($posts);
+        $category = $this->categoryModel->findAll();
+        $data =  [
+            'title' => 'Post By Category',
+            'category' => $category,
+            'posts' => $posts,
+            // 'pager' => $this->postModel->pager
+        ];
+        // dd($data);
+
+        return view('category', $data);
+    }
 }
