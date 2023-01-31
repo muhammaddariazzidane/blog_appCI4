@@ -20,16 +20,71 @@ class DashboardController extends BaseController
         $this->userModel = new UserModel();
         $this->postModel = new PostModel();
     }
+    public function User()
+    {
+        // dd(session()->get());
+        // $user = $this->userModel->findAll();
+        // dd($user);
+        $user = $this->userModel->where('id', session()->get('id'))->first();
+        $data = [
+            'title' => 'Your Profile',
+            'user' => $user
+        ];
+        return view('dashboard/user', $data);
+    }
+    public function UserEdit($id)
+    {
+        $user = $this->userModel->where('id', session()->get('id'))->first();
+        // dd($this->request->getVar());
+        if (!$this->validate([
+            'name' => 'required|max_length[200]',
+            'user_image' => 'is_image[user_image]'
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->back()->withInput()->with('message', $validation->listErrors());
+        }
+        // dd('bisa');
+
+        $image = $this->request->getFile('user_image');
+        $oldImage = $this->request->getVar('oldImage');
+
+        if ($image->getError() == 4) {
+            $newImage = $this->request->getVar('oldImage');
+        } else {
+            $newImage = $image->getRandomName();
+            $image->move('img', $newImage);
+
+            if ($user->user_image != 'default.png') {
+                # code...
+                unlink('img/' . $oldImage);
+            }
+        }
+
+        // dd($this->request->getVar());
+        $this->userModel->save([
+            'id' => $id,
+            'name' => $this->request->getVar('name'),
+            'email' => $this->request->getVar('email'),
+            'image' => $newImage,
+
+        ]);
+        session()->setFlashdata('success', 'Success Edit Profile');
+        return redirect()->back()->withInput();
+    }
     public function index()
     {
-        // dd($data);
+        // dd(session()->get());
         $posts = $this->postModel->getAll();
+        $user = $this->userModel->where('id', session()->get('id'))->first();
+
             // $lempar = $posts[0]
         ;
         $data = [
             // ''
             'title' => 'Dashboard',
             'posts' => $posts,
+            'user' => $user
+
 
         ];
         // dd($posts);
@@ -43,11 +98,15 @@ class DashboardController extends BaseController
         } else {
             $users = $this->userModel->where('is_admin', 0)->orderBy('created_at', 'DESC');
         }
-        // dd($users->is_admin);
+        // $user = $this->userModel->where('id', session()->get('id'))->first();
+
+        $id = session()->get('id');
+        // dd(session()->get());
         return view('dashboard/users', [
             'title' => 'Lists User',
             'users' =>  $users->paginate(15, 'users'),
-            'pager' => $this->userModel->pager
+            'pager' => $this->userModel->pager,
+            'user' => $this->userModel->getUser($id)
 
         ]);
     }
@@ -66,12 +125,14 @@ class DashboardController extends BaseController
         } else {
             $categories = $this->categoryModel->orderBy('created_at', 'DESC');
         }
+        $id = session()->get('id');
 
         // $data = $this->categoryModel->paginate(5, 'categories');
         return view('dashboard/categories', [
             'title' => 'Lists Category',
             'categories' => $categories->paginate(5, 'categories'),
-            'pager' => $this->categoryModel->pager
+            'pager' => $this->categoryModel->pager,
+            'user' => $this->userModel->getUser($id)
         ]);
     }
     public function storeCategory()

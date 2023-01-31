@@ -14,7 +14,8 @@ class PostModel extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['title', 'body', 'image', 'user_id', 'category_id'];
+    // hapus bawah allowed field created_at jika pake datetime otomatis
+    protected $allowedFields    = ['title', 'body', 'image', 'user_id', 'category_id', 'created_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -54,7 +55,7 @@ class PostModel extends Model
     {
         // $db      = \Config\Database::connect();
         $builder = $this->builder();
-        $builder->select('posts.id as postId, category_id, user_id, categories.name as name_category , users.name as name_user ,title , body , image , posts.created_at as ct');
+        $builder->select('posts.id as postId, category_id, user_id, categories.name as name_category , users.name as name_user ,title , body , posts.image as postImg , posts.created_at as ct');
         $builder->join('categories', 'categories.id = posts.category_id');
         $builder->join('users', 'users.id = posts.user_id');
         $query = $builder->where('posts.id', $postId)->get();

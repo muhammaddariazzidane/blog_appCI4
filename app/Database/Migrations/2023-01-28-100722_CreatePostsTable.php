@@ -37,11 +37,14 @@ class CreatePostsTable extends Migration
                 'type' => 'INT',
                 'constraint'     => 11,
             ],
+            // ganti semua di bawah bukan INT tapi DATETIME jika pakai datetime manual
             'created_at' => [
-                'type'           => 'DATETIME'
+                'type'           => 'INT',
+                'constraint'     => 11,
             ],
             'updated_at' => [
-                'type'           => 'DATETIME',
+                'type'           => 'INT',
+                'constraint'     => 11,
             ]
         ]);
         $this->forge->addKey('id', true);

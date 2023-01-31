@@ -27,7 +27,7 @@ class CreateUsersTable extends Migration
                 'type'           => 'VARCHAR',
                 'constraint'     => 255,
             ],
-            'password' => [
+            'user_image' => [
                 'type'           => 'VARCHAR',
                 'constraint'     => 255,
             ],
@@ -36,12 +36,12 @@ class CreateUsersTable extends Migration
                 'default'        => false
             ],
             'created_at' => [
-                'type'           => 'DATETIME',
-                // 'constraint'     => 128,
+                'type'           => 'INT',
+                'constraint'     => 11,
             ],
             'updated_at' => [
-                'type'           => 'DATETIME',
-                // 'constraint'     => 128,
+                'type'           => 'INT',
+                'constraint'     => 11,
             ],
         ]);
         $this->forge->addKey('id', true);

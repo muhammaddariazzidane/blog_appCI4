@@ -14,7 +14,7 @@ class UserModel extends Model
     protected $returnType       = 'object';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['name', 'email', 'password'];
+    protected $allowedFields    = ['name', 'email', 'password', 'user_image', 'created_at'];
 
     // Dates
     protected $useTimestamps = true;
@@ -48,5 +48,10 @@ class UserModel extends Model
 
         return $builder;
         // $this->table('users')->orLike('email', $keyword);
+    }
+    public function getUser($id)
+    {
+        $user =  $this->where('id', $id)->first();
+        return $user;
     }
 }

@@ -44,11 +44,12 @@ $routes->post('/login', 'LoginController::auth');
 $routes->post('/register', 'RegisterController::store');
 // dashboard
 $routes->get('/dashboard', 'DashboardController::index');
+$routes->get('/dashboard/profile', 'DashboardController::User');
+$routes->post('/dashboard/profile/(:num)', 'DashboardController::UserEdit/$1');
 // admin
 $routes->group('dashboard', ['filter' => 'is_admin'],  function ($routes) {
     $routes->get('users', 'DashboardController::UserLists');
     $routes->delete('users/(:num)', 'DashboardController::deleteUser/$1');
-
     // category
     $routes->get('categories', 'DashboardController::CategoryLists');
     $routes->post('categories', 'DashboardController::storeCategory');

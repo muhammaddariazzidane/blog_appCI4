@@ -42,7 +42,7 @@
             <td class="px-6 py-4 whitespace-pre-line">
               <h1><?= $p->title ?></h1>
             </td>
-            <td class="px-6 py-4 whitespace-pre-line"><?= substr($p->body, 0, 10) ?></td>
+            <td class="px-6 py-4 whitespace-pre-line"><?= substr($p->body, 0, 80) ?></td>
             <td class="px-6 py-4">
               <span class="inline-flex items-center gap-1 rounded-full bg-blue-50 px-2 py-1 text-xs font-semibold text-blue-600">
                 <?= $p->name_category ?>

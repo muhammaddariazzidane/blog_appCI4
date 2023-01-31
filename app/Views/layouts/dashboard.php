@@ -44,7 +44,6 @@
 
     })
 
-    var editor = Jodit.make('#editor');
 
     const toggleSide = document.querySelector('#toggleSide')
     const sidebar = document.querySelector('#sidebar')
@@ -77,6 +76,7 @@
         imgPreview.src = e.target.result
       }
     }
+    var editor = Jodit.make('#editor');
   </script>
 </body>
 

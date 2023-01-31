@@ -33,5 +33,6 @@
       </div>
     </form>
   </div>
+</div>
 
-  <?= $this->endSection() ?>
+<?= $this->endSection() ?>

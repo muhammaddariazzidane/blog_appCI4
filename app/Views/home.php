@@ -38,9 +38,13 @@
                         <h1 class="text-3xl font-semibold mb-3 "><?= $p->title ?>
                         </h1>
                     </a>
+                    <!-- <a href="#" class="text-slate-600 dark:text-slate-400"></a> -->
                     <div class="flex lg:flex-row flex-col mb-3">
                         <div class="lg:w-[70%] w-full lg:pr-4">
-                            <p class="text-slate-600 break-words dark:text-slate-400"><?= substr($p->body, 0, 350) ?>...<em class="hover:cursor-pointer hover:underline text-primary "><a href="/detail/<?= $p->postId ?>">Read more</a></em>
+                            <p class="text-slate-600 break-words dark:text-slate-400"><?= substr($p->body, 0, 300) ?>...<span class="hover:cursor-pointer  py-2 overflow-hidden max-w-[8rem] text-indigo-700 hover:underline hover:animate-pulse dark:text-indigo-300  flex">
+                                    <a href="/detail/<?= $p->postId ?>">read more</a>
+                                    <i data-feather="arrow-right"></i>
+                                </span>
                             </p>
                         </div>
                         <div class="w-full h-60 lg:mt-0 mt-4 lg:max-w-[30%] lg:max-h-36">
@@ -53,7 +57,7 @@
                             <a href="/category/<?= $p->category_id ?>" class="max-w-20 text-white lg:mt-4 mt-5 hover:bg-indigo-400 transition-all duration-300 bg-indigo-500 p-2 rounded-md"># <?= $p->name_category ?></a>
                         </div>
                         <div class="lg:mt-5 mt-4">
-                            <p class="dark:text-slate-300 text-slate-500">Post By : <?= $p->name_user  ?></p>
+                            <p class="dark:text-slate-300 text-slate-500"><?= date('d F Y', $p->ct)  ?></p>
                         </div>
                     </div>
                     <div class="mt-5">

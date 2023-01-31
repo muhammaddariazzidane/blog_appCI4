@@ -47,6 +47,8 @@ class PostController extends BaseController
             'image' => $fileName,
             'category_id' => $this->request->getVar('category_id'),
             'user_id' => session()->get('id'),
+            // hapus bawah jika pake datetime
+            'created_at' => time()
         ]);
         return redirect()->to('/');
     }

@@ -12,6 +12,10 @@
         <i data-feather="home"></i>
         <span class="text-[15px] ml-4 text-gray-200 font-bold">Home</span>
       </a>
+      <a href="/dashboard/profile" class="p-2 py-4 flex items-center  px-4 duration-300 cursor-pointer hover:bg-primary my-3 text-white <?= ($title == 'Your Profile') ? 'bg-primary' : '' ?>">
+        <i data-feather="user"></i>
+        <span class="text-[15px] ml-4 text-gray-200 font-bold">Profile</span>
+      </a>
       <a href="/dashboard" class="p-2 py-4 flex items-center  px-4 duration-300 cursor-pointer <?= ($title == 'Dashboard' or $title == 'Edit Post') ? "bg-primary" : "" ?>  hover:bg-primary my-3 text-white">
         <i data-feather="grid"></i>
         <span class="text-[15px] ml-4 text-gray-200 font-bold">Dashboard</span>

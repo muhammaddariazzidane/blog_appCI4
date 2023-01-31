@@ -31,6 +31,7 @@ class RegisterController extends BaseController
             'name' => 'required',
             'email' => 'required|valid_email|is_unique[users.email]',
             'password' => 'required|min_length[4]',
+
         ])) {
             $validation = \Config\Services::validation();
             // dd($validation->hasError('name'));
@@ -41,7 +42,9 @@ class RegisterController extends BaseController
         $data = [
             'name' => $this->request->getVar('name'),
             'email' => $this->request->getVar('email'),
-            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT)
+            'password' => password_hash($this->request->getVar('password'), PASSWORD_DEFAULT),
+            'user_image' => 'default.png',
+            'created_at' => time()
         ];
         // dd($data);
         $this->userModel->save($data);

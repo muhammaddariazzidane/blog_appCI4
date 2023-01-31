@@ -38,13 +38,14 @@ class Home extends BaseController
     }
     public function show($id)
     {
-        $post = $this->postModel->where('id', $id)->first();
-        // dd($post);
+        $post = $this->postModel->getPostById($id);
+        // $post = $this->postModel->where('id', $id)->first();
+        // dd($post[0]);
         $category = $this->categoryModel->findAll();
         $data =  [
             'title' => 'DetailPost',
             'category' => $category,
-            'post' => $post,
+            'post' => $post[0],
             // 'pager' => $this->postModel->pager
         ];
         return view('detail', $data);
