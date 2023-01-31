@@ -1,5 +1,4 @@
 <aside class=" transition-all duration-300 absolute bg-slate-900 min-h-screen h-full z-[999] scrollbar-hide overflow-y-scroll w-[40%] lg:w-[23%]" id="sidebar">
-
   <div class="absolute w-full text-white lg:shadow-none shadow-sm shadow-slate-800 h-16">
     <h1 class="my-4 text-lg lg:text-2xl lg:px-0 px-4 lg:text-center">Dashboard</h1>
     <div onclick="toggleSidebar()" as="button" class="hover:cursor-pointer absolute z-[99999] lg:hidden dark:bg-white bg-slate-900 rounded-full p-[0.4rem] top-3 right-2">

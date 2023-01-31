@@ -3,50 +3,8 @@
 <?= $this->section('main') ?>
 <?= $this->include('components/navbar') ?>
 <!-- form create -->
-<input type="checkbox" id="my-modal-4" class="modal-toggle" />
+<?= $this->include('components/formCreate') ?>
 
-<label for="my-modal-4" class="modal  cursor-pointer">
-  <label class="modal-box relative  dark:bg-black scrollbar-hide" for="">
-    <h1 class="mb-5 text-center dark:text-white text-2xl">Create New Post</h1>
-
-    <form action="/posts" method="post" class=" w-full" enctype="multipart/form-data">
-      <?= csrf_field() ?>
-      <label for="title" class="label">
-        <span class="label-text dark:text-white">Title</span>
-      </label>
-      <input required type="text" name="title" placeholder="Type here" class="input mb-3 border-primary  focus:outline-primary w-full max-w-full " value="<?= old('title') ?>" />
-      <label for="" class="label">
-        <span class="label-text dark:text-white">Category</span>
-      </label>
-      <select class="select select-bordered border-primary focus:outline-primary w-full max-w-full" name='category_id'>
-        <?php if ($category) : ?>
-          <?php foreach ($category as $c) : ?>
-
-            <option value="<?= $c->id ?>"><?= $c->name ?></option>
-          <?php endforeach ?>
-        <?php else : ?>
-          <option>Category Not Found</option>
-        <?php endif ?>
-
-      </select>
-      <div class="form-control  w-full max-w-full">
-        <label class="label">
-          <span class="label-text dark:text-white">Image</span>
-        </label>
-        <input type="file" id="image" name="image" class="file-input  file-input-bordered w-full max-w-full" />
-
-      </div>
-      <label for="body" class="label">
-        <span class="label-text dark:text-white">Body</span>
-      </label>
-      <textarea name="body" id="editor" class="textarea textarea-primary w-full" required></textarea>
-
-      <div class="mt-5">
-        <button type="submit" class="btn btn-primary">Create Post</button>
-      </div>
-    </form>
-  </label>
-</label>
 
 <div class="min-h-screen max-w-[740px] dark:text-white pt-32 mx-auto">
   <div class="px-6 lg:px-0">

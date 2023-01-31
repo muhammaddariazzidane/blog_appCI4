@@ -3,69 +3,32 @@
 <?= $this->section('main') ?>
 <?= $this->include('components/navbar') ?>
 <!-- form create -->
-<input type="checkbox" id="my-modal-4" class="modal-toggle" />
 
-<label for="my-modal-4" class="modal  cursor-pointer">
-    <label class="modal-box relative  dark:bg-slate-900 scrollbar-hide" for="">
-        <h1 class="mb-5 text-center dark:text-white text-2xl">Create New Post</h1>
-
-        <form action="/posts" method="post" class=" w-full" enctype="multipart/form-data">
-            <?= csrf_field() ?>
-            <label for="title" class="label">
-                <span class="label-text dark:text-white">Title</span>
-            </label>
-            <input type="text" name="title" placeholder="Type here" class="input mb-3 border-primary  focus:outline-primary w-full max-w-full " value="<?= old('title') ?>" />
-            <label for="" class="label">
-                <span class="label-text dark:text-white">Category</span>
-            </label>
-            <select class="select select-bordered border-primary focus:outline-primary w-full max-w-full" name='category_id'>
-                <?php if ($category) : ?>
-                    <?php foreach ($category as $c) : ?>
-
-                        <option value="<?= $c->id ?>"><?= $c->name ?></option>
-                    <?php endforeach ?>
-                <?php else : ?>
-                    <option>Category Not Found</option>
-                <?php endif ?>
-
-            </select>
-            <div class="form-control  w-full max-w-full">
-                <label class="label">
-                    <span class="label-text dark:text-white">Image</span>
-                </label>
-                <input type="file" id="image" name="image" class="file-input  file-input-bordered w-full max-w-full" />
-
-            </div>
-            <label for="body" class="label">
-                <span class="label-text dark:text-white">Body</span>
-            </label>
-            <textarea name="body" id="editor" class="textarea textarea-primary w-full" required></textarea>
-
-            <div class="mt-5">
-                <button type="submit" class="btn btn-primary">Create Post</button>
-            </div>
-        </form>
-    </label>
-</label>
+<?= $this->include('components/formCreate') ?>
 <!-- <h1 class="text-6xl pt-44 text-primary">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde id dolores, ratione officia officiis ex veritatis. Facere, voluptatem? Debitis non sint quam deleniti ducimus. Praesentium exercitationem itaque dolorem labore consequatur tenetur ratione omnis, odio nihil nam voluptatem quibusdam eveniet animi quo numquam rerum iure?</h1> -->
 <div class="min-h-screen max-w-[740px] dark:text-white pt-32 mx-auto">
-    <div class="max-w-full hidden min-h-screen dark:bg-black/50 bg-slate-700/40 w-full z-[999] left-0 fixed top-16" id="alert">
-        <div class="alert alert-warning shadow-lg max-w-[740px] mx-auto">
-            <div>
-                <div class="flex flex-col">
-                    @foreach ($errors->all() as $error)
-                    <span> - {{ $error }}.</span>
-                    @endforeach
-                </div>
+    <!-- alert -->
+    <?php if (session()->getFlashdata('message')) : ?>
+        <div class="max-w-full  min-h-screen dark:bg-black/50 bg-slate-700/40 w-full z-[99999] left-0 fixed top-16" id="message">
+            <div class="alert alert-warning shadow-lg max-w-[740px] mt-8 mx-auto relative">
+                <div class="0 w-[80%]">
+                    <div class="flex  flex-col">
 
-            </div>
-            <div class="flex-none">
-                <button onclick="myFunction()" class="bg-slate-700 p-3  text-white rounded-full">
-                    <i data-feather="x"></i>
-                </button>
+                        <span>
+                            <?= session()->getFlashdata('message') ?>
+                        </span>
+                    </div>
+
+                </div>
+                <div class="absolute top-2 right-2">
+                    <button onclick="myFunction()" class="bg-slate-700 p-2  text-white rounded-full">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </div>
+    <?php endif ?>
+
     <?php if ($posts['posts']) : ?>
         <div class="w-full lg:px-0 px-6">
             <?php foreach ($posts['posts'] as $p) : ?>

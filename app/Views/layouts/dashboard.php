@@ -10,7 +10,7 @@
 
   <?= $this->include('components/dashboard/header') ?>
 
-  <div as="button" class=" lg:hidden absolute  bg-black/60 z-[99] min-h-screen overflow-y-scroll w-full" id="bgSidebar" onclick="toggleSidebar()">
+  <div as="button" class=" lg:hidden absolute  bg-black/60 z-[999] min-h-screen h-full overflow-y-scroll w-full" id="bgSidebar" onclick="toggleSidebar()">
   </div>
   <?= $this->include('components/dashboard/sidebar') ?>
 
@@ -36,14 +36,16 @@
 
 
   <script>
-    var editor = Jodit.make('#editor');
-
     const alt = document.querySelector('#message')
     window.addEventListener('load', function() {
       const timeAlert = setTimeout(() => {
         alt.classList.add('hidden')
       }, 3000);
+
     })
+
+    var editor = Jodit.make('#editor');
+
     const toggleSide = document.querySelector('#toggleSide')
     const sidebar = document.querySelector('#sidebar')
     const bgSidebar = document.querySelector('#bgSidebar')
@@ -62,6 +64,19 @@
     }
 
     feather.replace()
+
+    const PreviewImage = () => {
+
+      const image = document.querySelector('#image')
+      const imgPreview = document.querySelector('.img-preview')
+
+      const fileImage = new FileReader()
+      fileImage.readAsDataURL(image.files[0])
+
+      fileImage.onload = (e) => {
+        imgPreview.src = e.target.result
+      }
+    }
   </script>
 </body>
 

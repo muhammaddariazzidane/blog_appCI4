@@ -83,7 +83,6 @@
 
   <script>
     // 
-    var editor = Jodit.make('#editor');
 
     let target = document.querySelector('#loading')
 
@@ -94,6 +93,7 @@
     function show() {
       target.classList.remove('hidden')
     }
+    var editor = Jodit.make('#editor');
     const alt = document.querySelector('#message')
     window.addEventListener('load', function() {
       const timeAlert = setTimeout(() => {
@@ -141,6 +141,19 @@
     const alert = document.querySelector('#alert')
     const myFunction = () => {
       alert.classList.toggle('hidden')
+    }
+    const PreviewImage = () => {
+
+      const image = document.querySelector('#image')
+      const imgPreview = document.querySelector('.img-preview')
+
+      const fileImage = new FileReader()
+      fileImage.readAsDataURL(image.files[0])
+
+      fileImage.onload = (e) => {
+        imgPreview.classList.remove('hidden')
+        imgPreview.src = e.target.result
+      }
     }
   </script>
 </body>

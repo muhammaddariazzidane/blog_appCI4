@@ -27,7 +27,7 @@
         <label class="label">
           <span class="label-text text-white mb-1">Title</span>
         </label>
-        <input value="<?= old('title', $post->title) ?>  " type="text" placeholder="Title" name="title" class="input input-bordered" />
+        <input value="<?= $post->title ?>  " type="text" placeholder="Title" name="title" class="input border-primary input-bordered" />
       </div>
       <label for="" class="label">
         <span class="label-text text-white">Category</span>
@@ -47,12 +47,17 @@
           <?php endif ?>
         </select>
       </div>
-      <div class="form-control  w-full max-w-full">
+      <div class="form-control  w-full max-w-full ">
         <label class="label">
           <span class="label-text text-white">Image</span>
         </label>
-        <input type="file" id="image" name="image" class="file-input  file-input-bordered w-full max-w-full" />
-
+        <div class="flex items-center gap-6">
+          <div class="shrink-0">
+            <img class="h-16 w-20 object-cover img-preview" src="/img/<?= $post->image ?>" alt="Current profile photo" />
+          </div>
+          <!-- <span class="sr-only">Choose profile photo</span> -->
+          <input name="image" type="file" id="image" onchange="PreviewImage()" class=" w-full rounded-lg bg-white text-sm text-slate-500 file:mr-4 file:py-3 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-primary hover:file:bg-violet-100" />
+        </div>
       </div>
       <div class="form-control">
         <label class="label">
