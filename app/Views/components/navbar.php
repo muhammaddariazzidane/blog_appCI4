@@ -1,4 +1,4 @@
-<div class="navbar dark:bg-transparent dark:shadow-primary/30 dark:backdrop-blur-md transition-all duration-300 bg-transparent dark:text-white backdrop-blur-md fixed z-[999] top-0">
+<div class="navbar dark:bg-transparent dark:shadow-primary/30 dark:backdrop-blur-lg transition-all duration-300 bg-transparent dark:text-white backdrop-blur-md fixed z-[999] top-0">
   <div class="navbar-start">
     <div class="dropdown">
       <label tabindex="0" class="btn btn-ghost btn-circle">
