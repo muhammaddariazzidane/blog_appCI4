@@ -80,7 +80,7 @@
                   </td>
                   <td class="px-5 py-5 border-b border-gray-500 bg-slate-700 text-sm">
                     <p class="text-white whitespace-no-wrap">
-                      <?= $u->created_at ?>
+                      <?= date('d F Y', $u->created_at) ?>
                     </p>
                   </td>
 

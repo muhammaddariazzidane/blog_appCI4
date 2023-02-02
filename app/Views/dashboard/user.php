@@ -77,9 +77,9 @@
           <label class="label">
             <span class="label-text text-white">Your image</span>
           </label>
-          <div class="flex items-center ">
+          <div class="flex lg:items-center lg:flex-row flex-col ">
             <div class="shrink-0">
-              <img class="h-16 w-20 object-cover mr-6  img-preview" src="/img/<?= $user->user_image ?>" alt="Current profile photo" />
+              <img class="h-16 w-20 object-cover mr-4 mb-2  img-preview" src="/img/<?= $user->user_image ?>" alt="Current profile photo" />
             </div>
             <input name="user_image" type="file" id="image" onchange="PreviewImage()" class=" w-full rounded-lg bg-white text-sm text-slate-500 file:mr-4 file:py-[0.85rem] file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-primary hover:file:bg-violet-100" />
           </div>

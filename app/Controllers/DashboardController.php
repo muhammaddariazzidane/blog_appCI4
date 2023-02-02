@@ -73,17 +73,17 @@ class DashboardController extends BaseController
     }
     public function index()
     {
-        // dd(session()->get());
         $posts = $this->postModel->getAll();
         $user = $this->userModel->where('id', session()->get('id'))->first();
-
+        $admin = $this->postModel->getAllFadmin();
             // $lempar = $posts[0]
         ;
         $data = [
             // ''
             'title' => 'Dashboard',
             'posts' => $posts,
-            'user' => $user
+            'user' => $user,
+            'admin' => $admin
 
 
         ];

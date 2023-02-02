@@ -20,7 +20,7 @@
     <form method="post" enctype="multipart/form-data" action="/posts/<?= $post->postId ?>" class="card-body">
       <?= csrf_field() ?>
       <input type="hidden" name="_method" value="PUT">
-      <input type="hidden" name="oldImage" value="<?= $post->image ?>">
+      <input type="hidden" name="oldImage" value="<?= $post->postImg ?>">
 
       <!-- <input type="hidden" name="id" value=""> -->
       <div class="form-control">
@@ -53,7 +53,7 @@
         </label>
         <div class="flex items-center gap-6">
           <div class="shrink-0">
-            <img class="h-16 w-20 object-cover img-preview" src="/img/<?= $post->image ?>" alt="Current profile photo" />
+            <img class="h-16 w-20 object-cover img-preview" src="/img/<?= $post->postImg ?>" alt="Current profile photo" />
           </div>
           <!-- <span class="sr-only">Choose profile photo</span> -->
           <input name="image" type="file" id="image" onchange="PreviewImage()" class=" w-full rounded-lg bg-white text-sm text-slate-500 file:mr-4 file:py-3 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-violet-50 file:text-primary hover:file:bg-violet-100" />

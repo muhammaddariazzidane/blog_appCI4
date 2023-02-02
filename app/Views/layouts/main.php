@@ -2,8 +2,7 @@
 
 <?= $this->section('template') ?>
 <title><?= $title ?></title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.24.2/jodit.es2018.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jodit/3.24.2/jodit.es2018.min.js"></script>
+
 
 
 <style>
@@ -53,7 +52,7 @@
 </script>
 </head>
 
-<body onload="hide()" class="relative dark:bg-slate-900 h-full min-h-screen transition-all duration-300 scrollbar-hide">
+<body onload="hide()" class="  relative  dark:bg-slate-900 h-full min-h-screen transition-all duration-300 scrollbar-hide">
 
   <div class="fixed z-[9999]  w-full backdrop-blur-sm min-h-screen " id='loading'>
     <div class="fixed top-[40%] right-0 left-0 text-center">
@@ -93,7 +92,6 @@
     function show() {
       target.classList.remove('hidden')
     }
-    var editor = Jodit.make('#editor');
     const alt = document.querySelector('#message')
     window.addEventListener('load', function() {
       const timeAlert = setTimeout(() => {
@@ -155,6 +153,13 @@
         imgPreview.src = e.target.result
       }
     }
+    const search = document.querySelector('#search')
+    const myFloat = () => {
+      // console.log('jalan');.
+
+      search.classList.add('w-full')
+    }
+    var editor = Jodit.make('#editor');
   </script>
 </body>
 

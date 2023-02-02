@@ -7,7 +7,7 @@
     </div>
     <div class="flex items-center space-x-1 lg:space-x-4">
       <a href="#" class="my-[1.15rem] px-4  text-white"><?= $user->name ?></a>
-      <div as='button' class="text-white pr-4 relative" onclick="toggleNavMenu()">
+      <div as='button' class="text-white lg:pr-4 relative" onclick="toggleNavMenu()">
         <i data-feather="chevrons-down" class="mt-1 hover:cursor-pointer" id="arrow"></i>
         <div id="navMenu" class="absolute bg-slate-800 rounded-lg w-32 min-h-full -scale-y-0  transition-all duration-300 hover:rounded-tr-lg rounded-tr-none top-8 right-7 z-[9999] shadow hover:shadow-xl">
           <ul class="flex flex-col  text-center ">

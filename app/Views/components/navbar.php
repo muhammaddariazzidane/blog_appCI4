@@ -32,7 +32,7 @@
     </div>
   </div>
   <div class="navbar-center">
-    <a href="/" class="btn btn-ghost normal-case text-xl text-transparent bg-clip-text bg-gradient-to-r from-red-600  to-purple-700 ">Dariazzidane-blog</a>
+    <a href="/" class="btn btn-ghost normal-case text-xl text-transparent bg-clip-text bg-gradient-to-br from-slate-200 via-violet-700  to-purple-200 ">Dariazzidane-blog</a>
   </div>
   <div class="navbar-end ">
 
@@ -41,8 +41,8 @@
       <li><a href="/" class="lg:block hidden">Home</a></li>
 
 
-      <!-- <li><a href="/about"><?= session()->get('name') ?></a></li> -->
-      <li><a href="/about">About</a></li>
+      <!-- <li><a href="/about">About</a></li> -->
+      <li><a href="#">About</a></li>
 
     </ul>
   </div>

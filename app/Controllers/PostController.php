@@ -55,18 +55,22 @@ class PostController extends BaseController
     public function edit($postId)
     {
         $post = $this->postModel->getPostById($postId);
-        // dd($postId);
+        // dd($post);
         $category = $this->categoryModel->findAll();
+        $user = $this->userModel->where('id', session()->get('id'))->first();
+
 
         return view('dashboard/editPost', [
             'title' => 'Edit Post',
             'post' => $post[0],
-            'category' => $category
+            'category' => $category,
+            'user' => $user
             // 'category' => $this->categoryModel->where('id', $id)->first()
         ]);
     }
     public function update($postId)
     {
+        // dd($this->request->getVar());
         if (!$this->validate([
             'title' => 'required|max_length[200]',
             'body' => 'required',

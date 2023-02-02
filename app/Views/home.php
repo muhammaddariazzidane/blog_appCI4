@@ -7,6 +7,7 @@
 <?= $this->include('components/formCreate') ?>
 <!-- <h1 class="text-6xl pt-44 text-primary">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Unde id dolores, ratione officia officiis ex veritatis. Facere, voluptatem? Debitis non sint quam deleniti ducimus. Praesentium exercitationem itaque dolorem labore consequatur tenetur ratione omnis, odio nihil nam voluptatem quibusdam eveniet animi quo numquam rerum iure?</h1> -->
 <div class="min-h-screen max-w-[740px] dark:text-white pt-32 mx-auto">
+
     <!-- alert -->
     <?php if (session()->getFlashdata('message')) : ?>
         <div class="max-w-full  min-h-screen dark:bg-black/50 bg-slate-700/40 w-full z-[99999] left-0 fixed top-16" id="message">
@@ -30,6 +31,16 @@
     <?php endif ?>
 
     <?php if ($posts['posts']) : ?>
+        <form action="" method="post">
+
+            <label class="relative block -mt-10 mb-12 mx-6 lg:mx-0 ">
+                <!-- <span class="sr-only">Search</span> -->
+                <button type="submit" class="absolute inset-y-0 left-0 flex items-center pl-2">
+                    <i class="h-5 w-5 text-black " data-feather="search"></i>
+                </button>
+                <input id="search" onkeypress="myFloat()" class=" placeholder:italic placeholder:text-slate-400 block transition-all duration-300 dark:bg-slate-200 text-primary  border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-primary focus:ring-primary focus:ring-1 sm:text-sm" placeholder="Search for anything..." type="text" name="keyword" />
+            </label>
+        </form>
         <div class="w-full lg:px-0 px-6">
             <?php foreach ($posts['posts'] as $p) : ?>
                 <div class="my-6">
@@ -81,4 +92,6 @@
 
     <?php endif ?>
 </div>
+
+
 <?= $this->endSection() ?>

@@ -3,8 +3,7 @@
 <?= $this->section('main') ?>
 <div class=" flex flex-col min-h-screen ">
   <div class=" flex flex-1 justify-center items-center">
-    <div class="rounded-xl px-4 lg:px-12 py-12 lg:max-w-md  w-full shadow-sm dark:shadow-primary">
-
+    <div class="rounded-xl px-4 lg:px-12 py-12 lg:max-w-md  w-full shadow-sm shadow-primary">
       <form action="/login" method="post" class="text-center">
         <h1 class="font-bold tracking-wider text-3xl mb-4 w-full dark:text-white">
           Login
@@ -37,7 +36,7 @@
               Email
             </span>
           </label>
-          <input required class="bg-white border-2 border-primary focus:outline-none  block w-full py-2 px-4 rounded-full" type="email" name="email" id="" placeholder="nama@mm.com">
+          <input required class="bg-white border-2 border-primary focus:outline-none  block w-full py-2 px-4 rounded-full" type="email" name="email" id="" placeholder="email@example.com">
         </div>
         <div class="py-2">
           <label for="" class=" label">
@@ -45,7 +44,7 @@
               Password
             </span>
           </label>
-          <input required class="bg-white border-2 border-primary focus:outline-none  block w-full py-2 px-4 rounded-full" type="password" name="password" id="" placeholder="passsword kamu">
+          <input required class="bg-white border-2 border-primary focus:outline-none  block w-full py-2 px-4 rounded-full" type="password" name="password" id="" placeholder="passsword">
         </div>
         <button type="submit" class="bg-violet-600 p-3 rounded-full w-full my-5 px-5 text-white">Login</button>
       </form>
